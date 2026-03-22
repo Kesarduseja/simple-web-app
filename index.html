@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>AI Jewelry Designer</title>
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+background:#f2f2f2;
+}
+
+h1{
+color:#333;
+}
+
+.upload{
+margin:20px;
+padding:20px;
+background:white;
+border-radius:10px;
+}
+
+.viewer{
+margin-top:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>AI Jewelry Designer</h1>
+<p>Convert 2D Jewelry Design into 3D Model</p>
+
+<div class="upload">
+
+<h3>Upload Your Jewelry Design</h3>
+
+<input type="file" onchange="loadImage(event)">
+
+<img id="preview" width="200">
+
+<script>
+function loadImage(event){
+var img = document.getElementById("preview");
+img.src = URL.createObjectURL(event.target.files[0]);
+}
+</script>
+
+<p>AI is converting your design...</p>
+
+</div>
+
+<div class="viewer">
+
+<h2>3D Jewelry Preview</h2>
+
+<img src="ring image.png" width="300">
+
+<p>Rotate | Zoom | View in 3D</p>
+
+</div>
+
+</body>
+
+</html>
