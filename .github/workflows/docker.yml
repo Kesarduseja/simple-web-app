@@ -1,4 +1,4 @@
-name: Docker CI
+name: Docker CI/CD
 
 on:
   push:
@@ -9,15 +9,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout Code
+      uses: actions/checkout@v3
 
     - name: Login to Docker Hub
       uses: docker/login-action@v2
       with:
-        username: cloudapp123
-        password: KESAR@0508
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build and Push
+    - name: Build and Push Image
       uses: docker/build-push-action@v4
       with:
         push: true
